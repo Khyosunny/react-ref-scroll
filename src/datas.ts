@@ -95,4 +95,25 @@ export const datas: dataType[] = [
       },
     ],
   },
+  {
+    id: 4,
+    menu_kind: '음료2',
+    menu_group: [
+      {
+        id: 400,
+        menu_name: '콜라',
+        price: '2,000',
+      },
+      {
+        id: 401,
+        menu_name: '사이다',
+        price: '2,000',
+      },
+      {
+        id: 402,
+        menu_name: '웰치스',
+        price: '2,000',
+      },
+    ],
+  },
 ];

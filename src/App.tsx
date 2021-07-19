@@ -52,15 +52,27 @@ export default function App(): React.ReactElement {
     [NAVBAR_HEIGHT]
   );
 
+  // const observerCallback: IntersectionObserverCallback = useCallback((entries, observer) => {
+  //   entries.forEach((entry) => {
+  //     if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+  //       const index = menuListDivRef.current.indexOf(entry.target as HTMLDivElement);
+
+  //       console.log(entry);
+  //       if (entry.boundingClientRect.y <= 0) {
+  //         setSelectedNavIndex(index + 1);
+  //       } else {
+  //         setSelectedNavIndex(index - 1);
+  //       }
+  //     }
+  //   });
+  // }, []);
+
   const observerCallback: IntersectionObserverCallback = useCallback((entries, observer) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      if (entry.intersectionRatio > 0 && entry.boundingClientRect.y < 0) {
         const index = menuListDivRef.current.indexOf(entry.target as HTMLDivElement);
-        if (entry.boundingClientRect.y < 0) {
-          setSelectedNavIndex(index + 1);
-        } else {
-          setSelectedNavIndex(index - 1);
-        }
+        console.log(index, entry);
+        setSelectedNavIndex(index + 1);
       }
     });
   }, []);
