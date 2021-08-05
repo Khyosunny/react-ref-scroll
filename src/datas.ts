@@ -11,10 +11,6 @@ export interface dataType {
   menu_group: menuGroupType[];
 }
 
-export interface selectedDataType extends dataType {
-  selected?: boolean;
-}
-
 export const datas: dataType[] = [
   {
     id: 0,

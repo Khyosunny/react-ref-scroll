@@ -1,31 +1,34 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { selectedDataType } from '../datas';
+import { dataType } from '../datas';
 
 interface MenuGroupNavProps {
-  data: selectedDataType[];
-  onMenuGroupSelected: (index: number) => void;
-  navbarRef: React.MutableRefObject<HTMLDivElement | null>;
+  data: dataType[];
+  navbarContainerRef: React.MutableRefObject<HTMLDivElement | null>;
+  addToNavbarItemRefs: (el: HTMLLIElement) => void;
+  scrollToMenuGroupContainer: (index: number) => void;
   selectedNavIndex: number;
 }
 
 export default function MenuGroupNav({
   data,
-  onMenuGroupSelected,
-  navbarRef,
+  navbarContainerRef,
+  addToNavbarItemRefs,
+  scrollToMenuGroupContainer,
   selectedNavIndex,
 }: MenuGroupNavProps): React.ReactElement {
   return (
-    <NavContainer ref={navbarRef}>
+    <NavContainer ref={navbarContainerRef}>
       <NavBar>
-        {data?.map((data, index) => (
-          <MenuGroup
-            key={data.id}
-            onClick={() => onMenuGroupSelected(index)}
+        {data?.map((menu, index) => (
+          <NavItem
+            key={menu.id}
+            ref={addToNavbarItemRefs}
+            onClick={() => scrollToMenuGroupContainer(index)}
             backgroundColor={selectedNavIndex === index}
           >
-            {data.menu_kind}
-          </MenuGroup>
+            {menu.menu_kind}
+          </NavItem>
         ))}
       </NavBar>
     </NavContainer>
@@ -48,13 +51,13 @@ const NavContainer = styled.div<StyleProps>`
 
 const NavBar = styled.ul`
   width: max-content;
-  padding: 10px 20px;
+  padding: 10px 30px;
   display: flex;
   column-gap: 30px;
 `;
 
-const MenuGroup = styled.li<StyleProps>`
-  overflow: auto;
+const NavItem = styled.li<StyleProps>`
+  overflow-x: scroll;
   width: max-content;
   padding: 10px 20px;
   display: flex;

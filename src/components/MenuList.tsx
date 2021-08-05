@@ -4,16 +4,16 @@ import { dataType } from '../datas';
 
 interface MenuListProps {
   data: dataType[];
-  addToDivRefs: (el: HTMLDivElement) => void;
+  addToMenuGroupContainerRefs: (el: HTMLDivElement) => void;
 }
 
-export default function MenuList({ data, addToDivRefs }: MenuListProps): React.ReactElement {
+export default function MenuList({ data, addToMenuGroupContainerRefs }: MenuListProps): React.ReactElement {
   return (
     <>
       {data?.map((data) => {
         if (data.menu_kind === '대표 메뉴') {
           return (
-            <MainMenuGroupContainer key={data.id} ref={addToDivRefs}>
+            <MainMenuGroupContainer key={data.id} ref={addToMenuGroupContainerRefs}>
               <div>
                 <MainMenuGroupTitle> - {data.menu_kind} - </MainMenuGroupTitle>
               </div>
@@ -34,7 +34,7 @@ export default function MenuList({ data, addToDivRefs }: MenuListProps): React.R
           );
         }
         return (
-          <MenuGroupContainer key={data.id} ref={addToDivRefs}>
+          <MenuGroupContainer key={data.id} ref={addToMenuGroupContainerRefs}>
             <MenuGroupTitleBar>
               <h2>{data.menu_kind}</h2>
             </MenuGroupTitleBar>
