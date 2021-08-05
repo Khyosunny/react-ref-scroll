@@ -55,16 +55,21 @@ export const datas: dataType[] = [
     menu_group: [
       {
         id: 300,
-        menu_name: '오징어 튀김',
+        menu_name: '셀프 날치알 주먹밥',
         price: '3,000',
       },
       {
         id: 301,
-        menu_name: '닭껍질 튀김',
-        price: '4,000',
+        menu_name: '계란찜',
+        price: '3,000',
       },
       {
         id: 302,
+        menu_name: '냉면',
+        price: '4,000',
+      },
+      {
+        id: 303,
         menu_name: '물만두',
         price: '6,000',
       },
@@ -72,43 +77,58 @@ export const datas: dataType[] = [
   },
   {
     id: 3,
-    menu_kind: '음료',
+    menu_kind: '추가사리',
     menu_group: [
       {
         id: 400,
-        menu_name: '콜라',
-        price: '2,000',
+        menu_name: '곱창 추가',
+        price: '4,000',
       },
       {
         id: 401,
-        menu_name: '사이다',
+        menu_name: '순대 추가',
         price: '2,000',
       },
       {
         id: 402,
-        menu_name: '웰치스',
+        menu_name: '당면 추가',
         price: '2,000',
+      },
+      {
+        id: 403,
+        menu_name: '떡 추가',
+        price: '2,000',
+      },
+      {
+        id: 404,
+        menu_name: '치즈 추가',
+        price: '3,000',
       },
     ],
   },
   {
     id: 4,
-    menu_kind: '음료2',
+    menu_kind: '음료',
     menu_group: [
       {
-        id: 400,
+        id: 500,
         menu_name: '콜라',
         price: '2,000',
       },
       {
-        id: 401,
+        id: 501,
         menu_name: '사이다',
         price: '2,000',
       },
       {
-        id: 402,
+        id: 502,
         menu_name: '웰치스',
         price: '2,000',
+      },
+      {
+        id: 503,
+        menu_name: '쿨피스',
+        price: '1,500',
       },
     ],
   },
