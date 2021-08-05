@@ -1,5 +1,7 @@
 # IntersectionObserver 을 사용한 scroll event
 
+`React` / `styled-components` / `typescript`
+
 ## 만들게 된 이유 :
 
 - 자주 사용하고 있는 배달의 민족 앱에서 메뉴를 고르다가 y 스크롤이 움직임과 동시에 버튼이 액티브 되고, 메뉴 카테고리 버튼들의 x 스크롤도 이동이 되는 것이 신기해서 만들어보고 싶단 생각이 들었습니다.
