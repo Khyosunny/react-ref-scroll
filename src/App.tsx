@@ -14,6 +14,7 @@ export default function App(): React.ReactElement {
   const menuGroupContainerRef = useRef<HTMLDivElement[]>([]);
 
   const NAVBAR_HEIGHT = navbarContainerRef.current ? navbarContainerRef.current.getBoundingClientRect().height : 0;
+  const NAVBAR_WIDTH = navbarContainerRef.current ? navbarContainerRef.current.getBoundingClientRect().width : 0;
   const NAVBAR_ITEM_WIDTH = navbarItemRef.current[selectedNavIndex]
     ? navbarItemRef.current[selectedNavIndex].getBoundingClientRect().width
     : 0;
@@ -35,10 +36,10 @@ export default function App(): React.ReactElement {
   // ------------ 스크롤을 내리거나 올릴 때 Navbar 가로 스크롤 이동 ------------
   useEffect(() => {
     navbarContainerRef.current?.scrollTo({
-      left: navbarItemRef.current[selectedNavIndex].offsetLeft - NAVBAR_ITEM_WIDTH - 20,
+      left: navbarItemRef.current[selectedNavIndex].offsetLeft - (NAVBAR_WIDTH / 2 - NAVBAR_ITEM_WIDTH / 2),
       behavior: 'smooth',
     });
-  }, [selectedNavIndex, NAVBAR_ITEM_WIDTH]);
+  }, [selectedNavIndex, NAVBAR_ITEM_WIDTH, NAVBAR_WIDTH]);
 
   // ------------ Navbar 아이템(버튼) 클릭시 해당 메뉴그룹이 Navbar 바로 아래로 이동 ------------
   const scrollToMenuGroupContainer = useCallback(
